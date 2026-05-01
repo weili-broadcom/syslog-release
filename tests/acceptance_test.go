@@ -204,7 +204,8 @@ var _ = Describe("Forwarding loglines to a TCP syslog drain", func() {
 
 			session := BoshCmd("deploy", "manifests/broken-rules.yml",
 				"-v", fmt.Sprintf("deployment=%s", DeploymentName()),
-				"-v", fmt.Sprintf("stemcell-os=%s", StemcellOS()))
+				"-v", fmt.Sprintf("stemcell-os=%s", StemcellOS()),
+				"-v", fmt.Sprintf("stemcell-version=%s", StemcellVersion()))
 			Eventually(session, 10*time.Minute).Should(gexec.Exit(1))
 			Eventually(BoshCmd("locks")).ShouldNot(gbytes.Say(DeploymentName()))
 		})

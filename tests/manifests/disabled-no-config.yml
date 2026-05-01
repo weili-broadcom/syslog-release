@@ -6,7 +6,7 @@ releases:
 stemcells:
   - alias: default
     os: ((stemcell-os))
-    version: latest
+    version: ((stemcell-version))
 instance_groups:
   - name: forwarder
     instances: 1
